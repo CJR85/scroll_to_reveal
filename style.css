@@ -14,6 +14,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background: #111;
+  overflow-x: hidden;
 }
 
 section {
@@ -32,6 +33,7 @@ section h2 {
 
 .container {
   position: relative;
+  top: -200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 700px;
@@ -39,9 +41,27 @@ section h2 {
 }
 
 .container .box {
+  position: relative;
+  top: 50vh;
   width: 200px;
   height: 200px;
   transition: 0.5s;
   background: #fff;
   border-radius: 10px;
+}
+
+.container .box:nth-child(3n + 1) {
+  transform: translate(-400px, 0) scale(0);
+}
+
+.container .box:nth-child(3n + 2) {
+  transform: translate(0, 400px, 0) scale(0);
+}
+
+.container .box:nth-child(3n + 3) {
+  transform: translate(400px, 0) scale(0);
+}
+
+.container .box.active {
+  transform: translate(0, 0) scale(1);
 }
